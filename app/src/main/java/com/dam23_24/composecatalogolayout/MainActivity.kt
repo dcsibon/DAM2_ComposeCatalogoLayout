@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
+/*
 @Composable
 fun MyRow1() {
     Row(
@@ -87,6 +87,7 @@ fun MyRow1() {
         )
     }
 }
+*/
 
 
 
@@ -178,7 +179,7 @@ fun MyComplexLayout() {
     }
 }
 
-
+/*
 @Composable
 fun MyRow() {
     Row(
@@ -248,8 +249,9 @@ fun MyRow() {
         )
     }
 }
+*/
 
-
+/*
 @Composable
 fun MyColumn() {
     Column(
@@ -299,8 +301,9 @@ fun MyColumn() {
         )
     }
 }
+*/
 
-
+/*
 @Composable
 fun MyBox() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -321,7 +324,7 @@ fun MyBox() {
         }
     }
 }
-
+*/
 
 /*
 @Preview(showBackground = true)
