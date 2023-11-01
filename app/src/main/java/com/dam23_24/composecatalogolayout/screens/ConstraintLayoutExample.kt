@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
+@Preview(showBackground = true)
 fun ConstraintExample() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
 
@@ -76,6 +77,7 @@ fun ConstraintExample() {
 /**
  * Ejemplo de uso de las guías en Compose
  */
+@Preview(showBackground = true)
 @Composable
 fun ConstraintExampleGuide() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
@@ -83,8 +85,8 @@ fun ConstraintExampleGuide() {
         val boxRed = createRef()
 
         //Línea guía en el 10% desde arriba y 20% desde la izquierda
-        var topGuide = createGuidelineFromTop(0.1f)
-        var startGuide = createGuidelineFromStart(0.2f)
+        val topGuide = createGuidelineFromTop(0.1f)
+        val startGuide = createGuidelineFromStart(0.2f)
 
         Box(modifier = Modifier
             .size(125.dp)
