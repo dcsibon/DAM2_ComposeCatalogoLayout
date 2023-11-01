@@ -18,34 +18,35 @@ import androidx.compose.ui.unit.sp
 
 @Preview(showBackground = true)
 @Composable
-fun MyExampleSpacer() {
-    Column(modifier = Modifier.fillMaxSize()) {
+fun MySpacer() {
+    Column(modifier = Modifier.fillMaxSize())
+    {
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Cyan)
         ) {
-            Text("BOX 1", fontSize = 40.sp)
+            Text(text = "BOX 1", fontSize = 40.sp)
         }
         Spacer(modifier = Modifier.height(50.dp))
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxWidth().weight(1f).background(Color.LightGray)
         ) {
-            Text("BOX2", fontSize = 40.sp)
+            Text(text = "BOX2", fontSize = 40.sp)
         }
         Spacer(modifier = Modifier.height(100.dp))
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Green)
         ) {
-            Text("BOX3", fontSize = 40.sp)
+            Text(text = "BOX3", fontSize = 40.sp)
         }
         Spacer(modifier = Modifier.height(20.dp))
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Magenta)
         ) {
-            Text("BOX4", fontSize = 40.sp)
+            Text(text = "BOX4", fontSize = 40.sp)
         }
     }
 }

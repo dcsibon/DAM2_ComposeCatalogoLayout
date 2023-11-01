@@ -13,13 +13,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 
-
-@Preview(showBackground = true)
 @Composable
 fun ConstraintExample() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
 
-        val (box1, box2, box3, box4, box5) = createRefs()
+        val (box1, box2, box3, box4) = createRefs()
 
         Box(
             contentAlignment = Alignment.Center,
@@ -71,30 +69,22 @@ fun ConstraintExample() {
         ) {
             Text(text = "Caja 4")
         }
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier
-                .size(120.dp)
-                .background(Color.Gray)
-                .constrainAs(box5) {
-                    top.linkTo(box1.bottom)
-                    start.linkTo(box1.end)
-                }
-        ) {
-            Text(text = "Caja 5")
-        }
     }
 }
 
+
+/**
+ * Ejemplo de uso de las guías en Compose
+ */
 @Composable
 fun ConstraintExampleGuide() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
 
         val boxRed = createRef()
 
-        //Línea guía en el 10% desde arriba
+        //Línea guía en el 10% desde arriba y 20% desde la izquierda
         var topGuide = createGuidelineFromTop(0.1f)
-        var startGuide = createGuidelineFromStart(0.1f)
+        var startGuide = createGuidelineFromStart(0.2f)
 
         Box(modifier = Modifier
             .size(125.dp)
@@ -103,11 +93,13 @@ fun ConstraintExampleGuide() {
                 top.linkTo(topGuide)
                 start.linkTo(startGuide)
             })
-
     }
 }
 
-
+/**
+ * Ejemplo de uso de las barreras en Compose
+ */
+@Preview(showBackground = true)
 @Composable
 fun ConstraintExampleBarrier() {
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {

@@ -2,15 +2,15 @@ package com.dam23_24.composecatalogolayout.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,77 +21,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-@Preview(showBackground = true)
-@Composable
-fun MyRow() {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                Color.hsl(
-                    hue = .35f,
-                    saturation = .60f,
-                    lightness = .70f,
-                    alpha = .65f
-                )
-            )
-            .horizontalScroll(rememberScrollState())
-    ) {
-        Text(
-            "Ejemplo1",
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .background(Color.Yellow)
-                .width(150.dp)
-                .height(150.dp)
-                .wrapContentHeight(Alignment.CenterVertically)
-        )
-        Text(
-            "Ejemplo2",
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center,
-            color = Color.White,
-            modifier = Modifier
-                .background(Color.Black)
-                .width(150.dp)
-                .height(150.dp)
-                .wrapContentHeight(Alignment.CenterVertically)
-        )
-        Text(
-            "Ejemplo3",
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .background(Color.Cyan)
-                .width(150.dp)
-                .height(150.dp)
-                .wrapContentHeight(Alignment.CenterVertically)
-        )
-        Text(
-            "Ejemplo4",
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .background(Color.LightGray)
-                .width(150.dp)
-                .height(150.dp)
-                .wrapContentHeight(Alignment.CenterVertically)
-        )
-        Text(
-            "Ejemplo5",
-            fontSize = 16.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .background(Color.Red)
-                .width(150.dp)
-                .height(150.dp)
-                .wrapContentHeight(Alignment.CenterVertically)
-        )
-    }
-}
 
+@Preview(showBackground = true)
 @Composable
 fun MyRow1() {
     Row(
@@ -121,6 +52,54 @@ fun MyRow1() {
             "Ejemplo 4", modifier = Modifier
                 .border(2.dp, Color.Blue)
                 .padding(5.dp)
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MyRow2() {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Text(
+            text = "Text1",
+            fontSize = 20.sp,
+            modifier = Modifier
+                .background(Color.Red)
+                .weight(1f)
+                .wrapContentWidth(align = Alignment.Start)
+                .align(Alignment.Top)
+        )
+        Text(
+            text = "Text2",
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .background(Color.Gray)
+                .fillMaxHeight()
+                .weight(1f)
+                .wrapContentHeight(align = Alignment.Bottom)
+        )
+        Text(
+            text = "Text3",
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .background(Color.Cyan)
+                .width(180.dp)
+                .weight(1f)
+        )
+        Text(
+            text = "Text4",
+            fontSize = 20.sp,
+            textAlign = TextAlign.End,
+            modifier = Modifier
+                .background(Color.Green)
+                .weight(1f)
+                .height(100.dp)
+                .align(Alignment.Bottom)
         )
     }
 }
