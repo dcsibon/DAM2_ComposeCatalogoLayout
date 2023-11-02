@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.dam23_24.composecatalogolayout.screens.MyBox1
+
+import com.dam23_24.composecatalogolayout.screens.MyStateExample
+
 import com.dam23_24.composecatalogolayout.ui.theme.ComposeCatalogoLayoutTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,12 +24,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyBox1()
+                    MyStateExample()
                 }
             }
         }
     }
 }
-
-
 
