@@ -29,6 +29,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Devices
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
@@ -40,18 +42,23 @@ import com.dam23_24.composecatalogolayout.R
 fun MyScreenDialog() {
     var show by remember { mutableStateOf(false) }
 
-    Box(modifier = Modifier.fillMaxSize().background(Color.LightGray), contentAlignment = Alignment.Center) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.LightGray),
+        contentAlignment = Alignment.Center
+    ) {
         Button(onClick = { show = true }) {
             Text(text = "Mostrar diálogo")
         }
 
-        /*
+
         MyAlertDialog(
             show = show,
             onDissmiss = { show = false },
             onConfirm = { Log.i("MyDialog", "click") }
         )
-        */
+
 
         /*
         MySimpleDialog(show = show,
@@ -59,14 +66,22 @@ fun MyScreenDialog() {
         )
         */
 
+        /*
         MyCustomDialog(
             show = show,
             onDissmiss = { show = false }
         )
-
+        */
     }
 }
 
+
+@Preview(showBackground = true, device = Devices.PIXEL_4_XL)
+@Composable
+fun MyAlertDialog(){
+    var show by remember { mutableStateOf(true) }
+    MyAlertDialog(show = show, {show = false},  {show = false})
+}
 
 @Composable
 fun MyAlertDialog(
@@ -75,7 +90,8 @@ fun MyAlertDialog(
     onConfirm: () -> Unit
 ) {
     if (show) {
-        AlertDialog(onDismissRequest = { onDissmiss() },
+        AlertDialog(
+            onDismissRequest = { onDissmiss() },
             title = { Text(text = "Título") },
             text = { Text(text = "Hola, soy un ejemplo :-)") },
             confirmButton = {
@@ -118,6 +134,7 @@ fun MySimpleDialog(
     }
 }
 
+
 @Composable
 fun MyCustomDialog(
     show: Boolean,
@@ -133,7 +150,7 @@ fun MyCustomDialog(
             ) {
                 MyTitleDialog(text = "Set backup account")
                 AccountItem(email = "ejemplo1@gmail.com", drawable = R.drawable.avatar1)
-                AccountItem(email = "ejemplo2@gmail.com", drawable = R.drawable.avatar2 )
+                AccountItem(email = "ejemplo2@gmail.com", drawable = R.drawable.avatar2)
                 AccountItem(email = "ejemplo3@gmail.com", drawable = R.drawable.avatar3)
                 AccountItem(email = "Añadir nueva cuenta", drawable = R.drawable.add)
             }
@@ -163,6 +180,11 @@ fun AccountItem(email: String, @DrawableRes drawable: Int) {
                 .size(40.dp)
                 .clip(CircleShape)
         )
-        Text(text = email, fontSize = 14.sp, color = Color.Gray, modifier = Modifier.padding(start = 8.dp))
+        Text(
+            text = email,
+            fontSize = 14.sp,
+            color = Color.Gray,
+            modifier = Modifier.padding(start = 8.dp)
+        )
     }
 }
