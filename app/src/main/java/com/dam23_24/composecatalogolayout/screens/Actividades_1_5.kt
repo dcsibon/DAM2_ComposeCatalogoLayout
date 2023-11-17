@@ -16,7 +16,6 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -35,6 +34,10 @@ cuando se muestre la línea de progreso... Cuando pulsemos "Cancelar" vuelve al 
 @Composable
 fun Actividad1() {
     var showLoading by rememberSaveable { mutableStateOf(false) }
+    var txtButton by rememberSaveable { mutableStateOf("Cargar perfil") }
+    var sizeDp by rememberSaveable {
+        mutableStateOf(0)
+    }
 
     Column(
         Modifier
@@ -45,6 +48,8 @@ fun Actividad1() {
     ) {
 
         if (showLoading) {
+            sizeDp = 30
+            txtButton = "Cancelar"
             CircularProgressIndicator(
                 color = Color.Red,
                 strokeWidth = 10.dp
@@ -55,11 +60,19 @@ fun Actividad1() {
                 trackColor = Color.LightGray
             )
         }
+        else
+        {
+            sizeDp = 0
+            txtButton = "Cargar perfil"
+        }
 
         Button(
-            onClick = { showLoading = !showLoading }
+            onClick = {
+                showLoading = !showLoading
+            },
+            modifier = Modifier.padding(top = sizeDp.dp)
         ) {
-            Text(text = "Cargar perfil")
+            Text(text = txtButton)
         }
     }
 }

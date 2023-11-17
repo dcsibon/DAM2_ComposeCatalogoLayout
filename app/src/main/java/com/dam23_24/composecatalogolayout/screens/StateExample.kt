@@ -14,6 +14,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+
+@Preview(showBackground = true)
+@Composable
+fun MyStateExample() {
+
+    Column(modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center) {
+        Button(onClick = { /*TODO*/ }) {
+            Text(text = "Pul")
+        }
+        Text(text = "He sido pulsado 0 veces")
+    }
+
+}
+
+
 /*
 @Preview(showBackground = true)
 @Composable
@@ -34,7 +50,7 @@ fun MyStateExample() {
 }
 */
 
-
+/*
 @Preview(showBackground = true)
 @Composable
 fun MyStateExample() {
@@ -52,6 +68,7 @@ fun MyStateExample() {
             modifier = Modifier.padding(top = 30.dp))
     }
 }
+*/
 
 
 /*

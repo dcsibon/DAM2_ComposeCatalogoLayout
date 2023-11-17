@@ -48,6 +48,7 @@ import com.dam23_24.composecatalogolayout.R
  * Text: Nos permite mostrar un texto en pantalla, no es editable para el usuario,
  * pero si podemos modificar su valor desde la app.
  */
+@Preview(showBackground = true)
 @Composable
 fun MyTextExample() {
     Column(
@@ -104,7 +105,6 @@ fun MyTextExample() {
 /**
  * TextField: Nos permite introducir un texto editable por el usuario
  */
-@Preview(showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTextFieldExample() {
@@ -126,7 +126,6 @@ fun MyTextFieldExample() {
  * OutlinedTextField: Similar al componente TextField, pero con un aspecto diferente.
  * Podemos modificar el color del borde cuando tenga o no el foco.
  */
-@Preview(showBackground = true)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyOutlinedTextFieldExample() {
@@ -250,6 +249,7 @@ fun MyIconExample() {
  * CircularProgressIndicator & LinearProgressIndicator.
  */
 @Composable
+@Preview(showBackground = true)
 fun MyProgressExample() {
     var showLoading by rememberSaveable { mutableStateOf(false) }
 

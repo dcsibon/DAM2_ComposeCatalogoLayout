@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,12 +53,12 @@ fun MyScreenDialog() {
             Text(text = "Mostrar diálogo")
         }
 
-
+/*
         MyAlertDialog(
             show = show,
-            onDissmiss = { show = false },
-            onConfirm = { Log.i("MyDialog", "click") }
-        )
+            Cancelar = { show = false },
+            Aceptar = { Log.i("MyDialog", "click") }
+        )*/
 
 
         /*
@@ -66,41 +67,40 @@ fun MyScreenDialog() {
         )
         */
 
-        /*
+
         MyCustomDialog(
             show = show,
-            onDissmiss = { show = false }
+            Cancelar = { show = false }
         )
-        */
+
     }
 }
 
 
-@Preview(showBackground = true, device = Devices.PIXEL_4_XL)
 @Composable
 fun MyAlertDialog(){
-    var show by remember { mutableStateOf(true) }
-    MyAlertDialog(show = show, {show = false},  {show = false})
+    var show by rememberSaveable { mutableStateOf(true) }
+    MyAlertDialog(show = show, {show = true},  {show = false})
 }
 
 @Composable
 fun MyAlertDialog(
     show: Boolean,
-    onDissmiss: () -> Unit,
-    onConfirm: () -> Unit
+    Cancelar: () -> Unit,
+    Aceptar: () -> Unit
 ) {
     if (show) {
         AlertDialog(
-            onDismissRequest = { onDissmiss() },
+            onDismissRequest = { Cancelar() },
             title = { Text(text = "Título") },
             text = { Text(text = "Hola, soy un ejemplo :-)") },
             confirmButton = {
-                TextButton(onClick = { onConfirm() }) {
+                TextButton(onClick = { Aceptar() }) {
                     Text(text = "Aceptar")
                 }
             },
             dismissButton = {
-                TextButton(onClick = { onDissmiss() }) {
+                TextButton(onClick = { Cancelar() }) {
                     Text(text = "Cancelar")
                 }
             }
@@ -135,13 +135,25 @@ fun MySimpleDialog(
 }
 
 
+@Preview(showBackground = true)
+@Composable
+fun MyCustomDialog(){
+    var show by rememberSaveable { mutableStateOf(false) }
+
+    MyCustomDialog(
+        show = show,
+        Cancelar = { show = false }
+    )
+}
+
+
 @Composable
 fun MyCustomDialog(
     show: Boolean,
-    onDissmiss: () -> Unit
+    Cancelar: () -> Unit
 ) {
     if (show) {
-        Dialog(onDismissRequest = { onDissmiss() }) {
+        Dialog(onDismissRequest = { Cancelar() }) {
             Column(
                 modifier = Modifier
                     .background(Color.White)
